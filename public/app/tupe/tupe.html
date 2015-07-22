@@ -1,0 +1,15 @@
+<div ng-controller="tupeCtrl as tupe">
+    <input type="text" ng-model="tupe.url">
+    <button ng-click="tupe.getSize()">Submit</button>
+    <button ng-click="tupe.sendSocket()">Scoket</button>
+    <p>{{tupe.links.length}}</p>
+    <div ng-if="tupe.links.length">
+        <h2>{{tupe.video_name}}</h2>
+        <img ng-src="{{tupe.small_img}}">
+        <ul ng-repeat="info in tupe.links">
+            <li>format : {{info.format}}</li>
+            <li>resolution : {{info.resolution}}</li>
+            <li><button ng-click="tupe.download(info.url)">Submit</button></li>
+        </ul>
+    </div>
+</div>
